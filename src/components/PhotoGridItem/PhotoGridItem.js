@@ -7,7 +7,7 @@ const PhotoGridItem = ({ id, src, alt, tags }) => {
 			<Anchor href={`/photos/${id}`}>
 				<picture>
 					<source
-						type="image/avif"
+						type='image/avif'
 						srcSet={`
             ${src.replace('.jpg', '.avif')} 1x,
             ${src.replace('.jpg', '@2x.avif')} 2x,
@@ -15,7 +15,7 @@ const PhotoGridItem = ({ id, src, alt, tags }) => {
           `}
 					/>
 					<source
-						type="image/jpeg"
+						type='image/jpeg'
 						srcSet={`
             ${src} 1x,
             ${src.replace('.jpg', '@2x.jpg')} 2x,
@@ -51,7 +51,6 @@ const Image = styled.img`
 
 const Tags = styled.ul`
 	display: flex;
-	flex-wrap: wrap;
 	gap: 8px;
 `;
 
@@ -61,6 +60,10 @@ const Tag = styled.li`
 	font-size: 0.875rem;
 	font-weight: 475;
 	color: var(--color-gray-800);
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 `;
 
 export default PhotoGridItem;
